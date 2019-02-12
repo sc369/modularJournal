@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./styles/main.css">
+  <title>Daily Journal</title>
+</head>
+
+<body>
+
+  <body>
+    <h1> Daily Journal</h1>
+    <fieldset>
+      <label for="journalDate">Date of entry</label>
+      <input class="entry-info" type="date" name="journalDate" id="journalDate">
+      <div class="entry-info" id="entry_info"> Concepts Covered:</div>
+      <input type="text" name="conceptsCovered" id="conceptsCovered">
+      <p id="Journal Entry">Journal Entry:</p>
+      <textarea id="textarea" name="story" rows="5" cols="30">
+        </textarea>
+      <p>
+        <label>How do you feel today?</label>
+        <select id="emotionList">
+          <option value="happy">happy</option>
+          <option value="sad">sad</option>
+          <option value="angry">angry</option>
+          <option value="worried">worried</option>
+        </select>
+      </p>
+
+    </fieldset>
+    <article id="button_container">
+      <button type="button" id="save_button">Save Entry</button>
+      <button type="button" id="show_button">Show Entries</button>
+
+    </article>
+    <section id="radio_buttons">
+      <p>Select a mood to filter posts</p>
+      <span>
+        <input type="radio" id="1" name="mood_button" value="happy" checked>
+        <label for="1">Happy</label>
+      </span>
+      <span>
+        <input type="radio" id="2" name="mood_button" value="sad">
+        <label for="2">Sad</label>
+      </span>
+      <span>
+        <input type="radio" id="3" name="mood_button" value="angry">
+        <label for="3">Angry</label>
+      </span>
+      <span>
+        <input type="radio" id="4" name="mood_button" value="worried">
+        <label for="4">Worried</label>
+      </span>
+    </section>
+    <div id="container"></div>
+
+
+
+
+    <script src="bundle.js"></script>
+  </body>
+
+</html>
