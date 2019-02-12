@@ -1,28 +1,28 @@
 {
   "entries": [
     {
-      "id": "1",
+      "id": 1,
       "title": "Promises",
       "date": "Jan 14th",
       "mood": "happy",
       "text": "promises were a little strange but I think I get the general idea."
     },
     {
-      "id": "2",
+      "id": 2,
       "title": "Data structures",
       "date": "Jan 22nd",
       "mood": "worried",
       "text": "I found it hard to follow the permutations of the data structures"
     },
     {
-      "id": "3",
+      "id": 3,
       "title": "Daily Journal",
       "date": "Jan 22nd",
       "mood": "angry",
       "text": "I find flexbox a little counter-intuitive"
     },
     {
-      "id": "4",
+      "id": 4,
       "title": "Array methods",
       "date": "Jan 22nd",
       "mood": "sad",
@@ -33,7 +33,7 @@
       "date": "",
       "mood": "worried",
       "text": "I think I understand modularisation, but I expect the implementation will be difficult. ",
-      "id": "Acdml4f"
+      "id": 5
     }
   ]
 }

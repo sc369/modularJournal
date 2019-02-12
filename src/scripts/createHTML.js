@@ -1,5 +1,13 @@
-const createJournalHTML = (entry) => {
-  return `
+const createHTML = {
+
+  createClearButton: () => {
+    const newButton = document.createElement("button")
+    newButton.textContent = "Clear Entries"
+    newButton.setAttribute("id", "clear_button")
+    document.querySelector("#button_container").appendChild(newButton)
+  },
+  createJournalHTML: (entry) => {
+    return `
 <article class = "journalEntry">         
 <section class = "title">
 <h3>${entry.title}</h3>
@@ -14,5 +22,6 @@ const createJournalHTML = (entry) => {
 <p>mood: ${entry.mood}</p>
 </section>
 `
+  }
 }
-export default createJournalHTML
+export default createHTML
