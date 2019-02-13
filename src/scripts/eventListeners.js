@@ -9,6 +9,15 @@ const showButton = document.querySelector("#show_button")
 const radioButtons = document.querySelector("#radio_buttons")
 const container = document.querySelector("#container")
 console.log(container)
+const isClearButton = () => {
+  const clearButton = document.querySelector("#clear_button")
+  if (clearButton) {
+    clearButton.style.display = "initial"
+  } else {
+    createHTML.createClearButton()
+    eventListeners.clearButtonListener()
+  }
+}
 
 const eventListeners = {
   clearButtonListener: () => {
@@ -28,13 +37,7 @@ const eventListeners = {
             const html = createHTML.createJournalHTML(entry)
             addToDOM(html)
           })
-          const clearButton = document.querySelector("#clear_button")
-          if (clearButton) {
-            clearButton.style.display = "initial"
-          } else {
-            createHTML.createClearButton()
-            eventListeners.clearButtonListener()
-          }
+          isClearButton()
         })
     }
     )
@@ -68,13 +71,7 @@ const eventListeners = {
           filteredEntries.forEach((entry) => {
             const newHTML = createHTML.createJournalHTML(entry)
             addToDOM(newHTML)
-            const clearButton = document.querySelector("#clear_button")
-            if (clearButton) {
-              clearButton.style.display = "initial"
-            } else {
-              createHTML.createClearButton()
-              eventListeners.clearButtonListener()
-            }
+            isClearButton()
           })
         })
     })
