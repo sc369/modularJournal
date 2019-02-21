@@ -20,8 +20,12 @@ const createHTML = {
 </section>
 <section class = "mood">
 <p>mood: ${entry.mood}</p>
+<button>Delete this entry</button>
 </section>
 `
   }
 }
+
+
+
 export default createHTML

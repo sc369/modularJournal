@@ -2,13 +2,12 @@ import createHTML from "./createHTML"
 import addToDOM from "./addToDOM"
 import entryManager from "./entryManager"
 import createObject from "./createObject"
-import clearDOM from "./clearDOM"
+import clearEntries from "./clearEntries"
 
 const saveButton = document.querySelector("#save_button")
 const showButton = document.querySelector("#show_button")
 const radioButtons = document.querySelector("#radio_buttons")
 const container = document.querySelector("#container")
-console.log(container)
 const isClearButton = () => {
   const clearButton = document.querySelector("#clear_button")
   if (clearButton) {
@@ -23,21 +22,42 @@ const eventListeners = {
   clearButtonListener: () => {
     const clearButton = document.querySelector("#clear_button")
     clearButton.addEventListener("click", () => {
-      clearDOM()
+      clearEntries()
       clearButton.style.display = "none"
     })
   },
+
+  searchButtonListener: () => {
+    const searchButton = document.querySelector("#search_button")
+    searchButton.addEventListener("click", (event) => {
+      const searchTerm = document.querySelector("#search_input").value
+      entryManager.getEntries().then((entries) => {
+        const result = entries.filter(entry => entry.text.includes(searchTerm))
+        console.log(result)
+        clearEntries()
+        if (result.length !== 0) {
+          isClearButton()
+        }
+        result.forEach(entry => {
+          const html = createHTML.createJournalHTML(entry)
+          addToDOM(html)
+        })
+      })
+      console.log(event)
+
+    })
+  },
+
   showButtonListener: () => {
     showButton.addEventListener("click", () => {
       entryManager.getEntries()
-        .then(res => res.json())
         .then(journalEntries => {
-          clearDOM()
+          clearEntries()
           journalEntries.forEach(entry => {
             const html = createHTML.createJournalHTML(entry)
             addToDOM(html)
           })
-          isClearButton()
+          ifisClearButton()
         })
     }
     )
@@ -60,8 +80,7 @@ const eventListeners = {
   },
   radioButtonListener: () => {
     radioButtons.addEventListener("click", (event) => {
-      //clear DOM
-      clearDOM()
+      clearEntries()
       //find selected mood and filter
       const mood = event.target.value
       entryManager.getEntries()

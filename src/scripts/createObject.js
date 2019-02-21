@@ -6,5 +6,4 @@ const createObject = (text, title, emotion, objectDate) => {
     text: text
   }
 }
-
 export default createObject

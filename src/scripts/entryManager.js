@@ -1,6 +1,7 @@
 const entryManager = {
     getEntries: () => {
         return fetch("http://127.0.0.1:8088/entries")
+            .then(res => res.json())
     },
 
     postEntry: (entryObject) => {
